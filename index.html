@@ -181,23 +181,231 @@
   </footer>
 
 </body>
-   <div class="post-date">2 июня 2026</div>
-  # 🐢 Программа на КуМир: «Прямоугольник»
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Программа на КуМир: Прямоугольник</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-Программа для графического исполнителя **Черепаха**. Рисует прямоугольник 200×100.
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      color: #333;
+      line-height: 1.6;
+    }
 
-## 📄 Исходный код
+    .post {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
 
-```kumir
-использовать Черепаха
-алг Прямоугольник
-нач
-  опустить хвост
-  нц 2 раз
-    вперед(200)    # рисуем длинную сторону
-    вправо(90)     # поворачиваем на 90°
-    вперед(100)    # рисуем короткую сторону
-    вправо(90)     # поворачиваем на 90°
-  кц
-кон
+    .post-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      padding: 40px 35px;
+      position: relative;
+    }
+
+    .post-date {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .post-header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .post-header h1 .emoji {
+      margin-right: 8px;
+    }
+
+    .subtitle {
+      margin-top: 12px;
+      opacity: 0.9;
+      font-size: 16px;
+    }
+
+    .post-body {
+      padding: 35px;
+    }
+
+    .post-body h2 {
+      color: #2c3e50;
+      font-size: 22px;
+      margin: 30px 0 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #eaeaea;
+    }
+
+    .post-body h2:first-child {
+      margin-top: 0;
+    }
+
+    .post-body p {
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .code-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e1e2e;
+      padding: 12px 20px;
+      border-radius: 12px 12px 0 0;
+      border-bottom: 1px solid #313244;
+    }
+
+    .code-lang {
+      color: #89b4fa;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .copy-btn {
+      background: transparent;
+      color: #cdd6f4;
+      border: 1px solid #45475a;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: #45475a;
+      color: #fff;
+    }
+
+    .copy-btn.ok {
+      background: #a6e3a1;
+      color: #1e1e2e;
+      border-color: #a6e3a1;
+    }
+
+    pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      padding: 20px;
+      border-radius: 0 0 12px 12px;
+      overflow-x: auto;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0 0 25px;
+      border-top: none;
+    }
+
+    .kw { color: #f38ba8; font-weight: bold; }
+    .fn { color: #89b4fa; }
+    .num { color: #f9e2af; }
+    .cmt { color: #6c7086; font-style: italic; }
+
+    .info-box {
+      padding: 18px 22px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-size: 15px;
+      border-left: 4px solid;
+    }
+
+    .info-box.blue {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+
+    .info-box.yellow {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+
+    .info-box strong { font-weight: 700; }
+
+    @media (max-width: 600px) {
+      .post-header { padding: 25px 20px; }
+      .post-header h1 { font-size: 24px; }
+      .post-body { padding: 20px; }
+      pre { font-size: 13px; padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <article class="post">
+    <div class="post-header">
+      <div class="post-date">2 июня 2026</div>
+      <h1><span class="emoji">🐢</span> Программа на КуМир: «Прямоугольник»</h1>
+      <p class="subtitle">Программа для графического исполнителя <strong>Черепаха</strong>. Рисует прямоугольник 200×100.</p>
+    </div>
+
+    <div class="post-body">
+      <h2> Исходный код</h2>
+
+      <div>
+        <div class="code-header">
+          <span class="code-lang">kumir</span>
+          <button class="copy-btn" id="copyBtn">📋 Копировать</button>
+        </div>
+<pre><code id="code"><span class="kw">использовать</span> <span class="fn">Черепаха</span>
+<span class="kw">алг</span> <span class="fn">Прямоугольник</span>
+<span class="kw">нач</span>
+  <span class="fn">опустить хвост</span>
+  <span class="kw">нц</span> <span class="num">2</span> <span class="kw">раз</span>
+    <span class="fn">вперед</span>(<span class="num">200</span>)    <span class="cmt"># рисуем длинную сторону</span>
+    <span class="fn">вправо</span>(<span class="num">90</span>)     <span class="cmt"># поворачиваем на 90°</span>
+    <span class="fn">вперед</span>(<span class="num">100</span>)    <span class="cmt"># рисуем короткую сторону</span>
+    <span class="fn">вправо</span>(<span class="num">90</span>)     <span class="cmt"># поворачиваем на 90°</span>
+  <span class="kw">кц</span>
+<span class="kw">кон</span></code></pre>
+      </div>
+
+      <h2> Как это работает</h2>
+      <p>Программа использует цикл <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-family:monospace;">нц 2 раз … кц</code>, который выполняется <strong>2 раза</strong>. За каждый проход черепаха рисует две смежные стороны прямоугольника и поворачивается на 90°.</p>
+
+      <div class="info-box blue">
+        <strong>💡 Логика:</strong> после двух повторов цикла черепаха проходит все 4 стороны фигуры и возвращается в исходную точку, замыкая прямоугольник.
+      </div>
+
+      <div class="info-box yellow">
+        <strong> Результат:</strong> нарисован прямоугольник со сторонами <strong>200</strong> и <strong>100</strong> шагов.
+      </div>
+    </div>
+  </article>
+
+  <script>
+    const btn = document.getElementById('copyBtn');
+    const code = document.getElementById('code');
+    btn.addEventListener('click', () => {
+      navigator.clipboard.writeText(code.innerText).then(() => {
+        btn.textContent = '✅ Скопировано!';
+        btn.classList.add('ok');
+        setTimeout(() => {
+          btn.textContent = '📋 Копировать';
+          btn.classList.remove('ok');
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
 </html>
